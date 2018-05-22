@@ -1,36 +1,41 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
+    <h1>Vue Player</h1>
+    <div class="test">
+      <VideoPlayer :src="src"/>
+    </div>
   </div>
 </template>
 
 <script>
+import VideoPlayer from './components/VideoPlayer'
+
 export default {
   name: 'app',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      src: 'http://download.blender.org/peach/trailer/trailer_400p.ogg'
     }
+  },
+  components: {
+    VideoPlayer
   }
 }
 </script>
 
 <style lang="scss">
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -40,21 +45,13 @@ export default {
   margin-top: 60px;
 }
 
-h1, h2 {
+h1 {
   font-weight: normal;
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
+.test {
+  width: 400px;
+  height: 400px;
 }
 
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
-}
 </style>
